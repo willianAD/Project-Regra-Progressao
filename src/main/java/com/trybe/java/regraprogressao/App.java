@@ -35,16 +35,29 @@ public class App {
     }
 
     if (somaPesos != 100.0d) {
-      System.out.println("A soma dos pesos deve ser igual a 100. Por favor recomece o programa.");
+      // System.out.println("A soma dos pesos deve ser igual a 100. Por favor recomece o
+      // programa.");
       System.exit(0);
+      scanner.close();
     }
 
-    double notaFinal = 0;
+    double nota = 0;
     for (int i = 0; i < qtdAtividades; i++) {
-      notaFinal += notasAtividades[i] * pesosAtividades[i];
+      nota += notasAtividades[i] * pesosAtividades[i];
     }
 
-    System.out.println("A nota final é: " + notaFinal / 100.0d);
+    double notaFinal = nota / 100.0d;
+
+    if (notaFinal > 85.0d) {
+      System.out.println("Parabéns! Você alcançou " + notaFinal
+          + "%! E temos o prazer de informar que você obteve aprovação!");
+    } else {
+      System.out.println(
+          "Lamentamos informar que, com base na sua pontuação alcançada neste período, " + notaFinal
+              + "%, você não atingiu a pontuação mínima necessária para sua aprovação.");
+    }
+
+    // System.out.println("A nota final é: " + notaFinal);
 
     scanner.close();
   }
