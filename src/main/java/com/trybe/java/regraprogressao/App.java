@@ -14,7 +14,7 @@ public class App {
     Scanner scanner = new Scanner(System.in);
 
     System.out.println("Digite a quantidade de atividades para cadastrar:");
-    int qtdAtividades = Integer.parseInt(scanner.next());
+    int qtdAtividades = Integer.parseInt(scanner.nextLine());
 
     String[] nomesAtividades = new String[qtdAtividades];
     double[] pesosAtividades = new double[qtdAtividades];
@@ -23,22 +23,22 @@ public class App {
 
     for (int i = 0; i < qtdAtividades; i++) {
       System.out.println("Digite o nome da atividade " + (i + 1) + ":");
-      String nome = scanner.next();
+      String nome = scanner.nextLine();
       nomesAtividades[i] = nome;
       System.out.println("Digite o peso da atividade " + (i + 1) + ":");
-      String peso = scanner.next();
+      String peso = scanner.nextLine();
       pesosAtividades[i] = Integer.parseInt(peso);
       System.out.println("Digite a nota obtida para " + nome + ":");
-      String nota = scanner.next();
+      String nota = scanner.nextLine();
       notasAtividades[i] = Integer.parseInt(nota);
       somaPesos += Integer.parseInt(peso);
     }
 
-    // if (somaPesos != 100.0d) {
-    // System.out.println("A soma dos pesos deve ser igual a 100. Por favor recomece o programa.");
-    // System.exit(0);
-    // scanner.close();
-    // }
+    if (somaPesos != 100.0d) {
+      System.out.println("A soma dos pesos deve ser igual a 100. Por favor recomece o programa.");
+      System.exit(0);
+      scanner.close();
+    }
 
     double nota = 0;
     for (int i = 0; i < qtdAtividades; i++) {
